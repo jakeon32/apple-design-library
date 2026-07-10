@@ -83,12 +83,20 @@ export const demo = {
       settleTo(target, velocity);
     }
 
+    function onOpenClick() {
+      settleTo(OPEN_Y, 0);
+    }
+
+    function onBackdropClick() {
+      settleTo(CLOSED_Y, 0);
+    }
+
     handle.addEventListener('pointerdown', onPointerDown);
     handle.addEventListener('pointermove', onPointerMove);
     handle.addEventListener('pointerup', onPointerUp);
     handle.addEventListener('pointercancel', onPointerUp);
-    openBtn.addEventListener('click', () => settleTo(OPEN_Y, 0));
-    backdrop.addEventListener('click', () => settleTo(CLOSED_Y, 0));
+    openBtn.addEventListener('click', onOpenClick);
+    backdrop.addEventListener('click', onBackdropClick);
 
     setPosition(CLOSED_Y);
 
@@ -98,6 +106,8 @@ export const demo = {
       handle.removeEventListener('pointermove', onPointerMove);
       handle.removeEventListener('pointerup', onPointerUp);
       handle.removeEventListener('pointercancel', onPointerUp);
+      openBtn.removeEventListener('click', onOpenClick);
+      backdrop.removeEventListener('click', onBackdropClick);
     };
   },
   code: `<div class="drag-sheet-stage">
