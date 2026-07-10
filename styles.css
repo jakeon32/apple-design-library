@@ -205,3 +205,29 @@ body {
   cursor: pointer;
   font-size: 14px;
 }
+
+.rubber-band-viewport {
+  width: 100%;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.rubber-band-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+}
+
+.rubber-band-card {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
