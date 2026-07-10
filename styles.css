@@ -117,3 +117,41 @@ body {
   .sidebar-list { display: flex; gap: 8px; }
   .panel { padding: 24px; max-width: 100%; }
 }
+
+.spring-stage {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.spring-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: var(--accent);
+}
+
+.spring-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.spring-controls input[type="range"] {
+  width: 100%;
+}
+
+.spring-controls button {
+  align-self: flex-start;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
