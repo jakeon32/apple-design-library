@@ -28,6 +28,7 @@ export const demo = {
       backdrop.hidden = false;
       backdrop.style.opacity = '1';
       if (toggle.checked) {
+        if (anim) anim.cancel();
         modal.style.transition = 'opacity 150ms ease';
         modal.style.transform = 'none';
         modal.style.opacity = '0';

@@ -289,7 +289,7 @@ body {
 
 .typography-controls input[type="range"] { width: 100%; }
 
-.rm-backdrop {
+.rm-backdrop:not([hidden]) {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
