@@ -155,3 +155,53 @@ body {
   cursor: pointer;
   font-size: 14px;
 }
+
+.drag-sheet-stage {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--bg-secondary);
+}
+
+.drag-sheet-backdrop {
+  position: absolute;
+  inset: 0;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.drag-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -60px;
+  height: 260px;
+  background: white;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.12);
+  padding: 16px;
+  text-align: center;
+  touch-action: none;
+}
+
+.drag-sheet-handle {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  margin: 0 auto 16px;
+  cursor: grab;
+}
+
+#open-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 14px;
+}

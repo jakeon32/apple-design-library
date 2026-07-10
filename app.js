@@ -1,11 +1,12 @@
 import { demo as springButtonDemo } from './demos/spring-button.js';
+import { demo as dragSheetDemo } from './demos/drag-sheet.js';
 
 export function resolveDemoFromHash(hash, demos) {
   const id = (hash || '').replace(/^#/, '');
   return demos.find((d) => d.id === id) || demos[0];
 }
 
-export const DEMOS = [springButtonDemo];
+export const DEMOS = [springButtonDemo, dragSheetDemo];
 
 function escapeHtml(str) {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
