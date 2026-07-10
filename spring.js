@@ -28,6 +28,11 @@ export function animateSpring({
   let rafId = null;
   let lastTime = null;
   let cancelled = false;
+  // Distinct from `cancelled`: set when the spring settles naturally and the
+  // rAF loop stops scheduling itself. retarget() uses this (not `cancelled`)
+  // to decide whether the loop needs to be woken back up — settling is
+  // resumable, cancellation is terminal.
+  let settled = false;
 
   function frame(time) {
     if (cancelled) return;
@@ -40,9 +45,11 @@ export function animateSpring({
     vel = step.velocity;
     onUpdate(position, vel);
 
-    const settled = Math.abs(target - position) < settleThreshold && Math.abs(vel) < settleThreshold;
-    if (settled) {
+    const isSettled = Math.abs(target - position) < settleThreshold && Math.abs(vel) < settleThreshold;
+    if (isSettled) {
       onUpdate(target, 0);
+      settled = true;
+      rafId = null;
       if (onComplete) onComplete();
       return;
     }
@@ -59,6 +66,14 @@ export function animateSpring({
     retarget(newTarget, newVelocity) {
       target = newTarget;
       if (newVelocity !== undefined) vel = newVelocity;
+      // If the loop already settled (and wasn't cancelled), it stopped
+      // scheduling rAF callbacks — nothing will ever read the new target
+      // unless we restart it, mirroring the initial bootstrap below.
+      if (settled && !cancelled) {
+        settled = false;
+        lastTime = null;
+        rafId = requestAnimationFrame(frame);
+      }
     },
     getState() {
       return { position, velocity: vel };
