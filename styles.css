@@ -272,3 +272,19 @@ body {
 
 .materials-content { padding: 16px; color: #1d1d1f; }
 .materials-bg-dark .materials-content { color: white; }
+
+.typography-sample {
+  max-width: 100%;
+  text-align: center;
+  transition: none;
+}
+
+.typography-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.typography-controls input[type="range"] { width: 100%; }
