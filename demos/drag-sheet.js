@@ -110,7 +110,8 @@ export const demo = {
       backdrop.removeEventListener('click', onBackdropClick);
     };
   },
-  code: `<div class="drag-sheet-stage">
+  code: `<!-- spring.js도 같은 폴더에 함께 복사하세요 (사이트 저장소의 spring.js 참고) -->
+<div class="drag-sheet-stage">
   <div class="drag-sheet-backdrop" id="sheet-backdrop"></div>
   <div class="drag-sheet" id="sheet">
     <div class="drag-sheet-handle" id="sheet-handle"></div>

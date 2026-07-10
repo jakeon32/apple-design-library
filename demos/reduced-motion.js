@@ -24,6 +24,10 @@ export const demo = {
     const closeBtn = container.querySelector('#rm-close-btn');
     let anim = null;
 
+    // Dogfood the same check the code snippet teaches: default the toggle to
+    // the user's real OS-level preference, while still allowing a manual flip.
+    toggle.checked = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     function openModal() {
       backdrop.hidden = false;
       backdrop.style.opacity = '1';
@@ -68,7 +72,8 @@ export const demo = {
       backdrop.removeEventListener('click', onBackdropClick);
     };
   },
-  code: `<div class="rm-backdrop" id="rm-backdrop" hidden>
+  code: `<!-- spring.js도 같은 폴더에 함께 복사하세요 (사이트 저장소의 spring.js 참고) -->
+<div class="rm-backdrop" id="rm-backdrop" hidden>
   <div class="rm-modal" id="rm-modal">모달 콘텐츠</div>
 </div>
 

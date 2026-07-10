@@ -59,7 +59,8 @@ export const demo = {
       if (currentAnim) currentAnim.cancel();
     };
   },
-  code: `<div class="spring-stage">
+  code: `<!-- spring.js도 같은 폴더에 함께 복사하세요 (사이트 저장소의 spring.js 참고) -->
+<div class="spring-stage">
   <div class="spring-box" id="spring-box"></div>
 </div>
 <button id="trigger-btn">움직이기</button>

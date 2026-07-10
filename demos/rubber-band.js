@@ -81,7 +81,8 @@ export const demo = {
       viewport.removeEventListener('pointercancel', onPointerUp);
     };
   },
-  code: `<div class="rubber-band-viewport" id="rb-viewport">
+  code: `<!-- spring.js도 같은 폴더에 함께 복사하세요 (사이트 저장소의 spring.js 참고) -->
+<div class="rubber-band-viewport" id="rb-viewport">
   <div class="rubber-band-track" id="rb-track">
     <div class="rubber-band-card">A</div>
     <div class="rubber-band-card">B</div>
