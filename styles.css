@@ -412,3 +412,46 @@ body {
   padding: 6px 16px;
   cursor: pointer;
 }
+
+.weight-wave-sample {
+  font-family: "Pretendard Variable", sans-serif;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  text-align: center;
+  margin: 0;
+}
+
+.weight-wave-sample span {
+  display: inline-block;
+  animation: weight-wave 3.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes weight-wave {
+  0%, 100% { font-variation-settings: 'wght' 300; }
+  25% { font-variation-settings: 'wght' 550; }
+  50% { font-variation-settings: 'wght' 900; }
+  75% { font-variation-settings: 'wght' 550; }
+}
+
+.weight-wave-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.weight-wave-controls input[type="text"],
+.weight-wave-controls input[type="range"] {
+  width: 100%;
+}
+
+.weight-wave-controls input[type="text"] {
+  padding: 8px 10px;
+  border: 1px solid var(--border-on-card);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weight-wave-sample span { animation: none; font-variation-settings: 'wght' 500; }
+}

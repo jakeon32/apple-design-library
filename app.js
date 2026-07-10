@@ -5,6 +5,7 @@ import { demo as rubberBandDemo } from './demos/rubber-band.js';
 import { demo as materialsDemo } from './demos/materials.js';
 import { demo as typographyDemo } from './demos/typography.js';
 import { demo as reducedMotionDemo } from './demos/reduced-motion.js';
+import { demo as weightWaveDemo } from './demos/weight-wave.js';
 
 export function resolveDemoFromHash(hash, demos) {
   const id = (hash || '').replace(/^#/, '');
@@ -18,6 +19,7 @@ export const DEMOS = [
   materialsDemo,
   typographyDemo,
   reducedMotionDemo,
+  weightWaveDemo,
 ];
 
 function escapeHtml(str) {
