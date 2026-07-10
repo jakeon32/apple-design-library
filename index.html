@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple Design 인터랙션 라이브러리</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar" id="sidebar">
+      <h1 class="sidebar-title">Apple Design</h1>
+      <ul class="sidebar-list" id="sidebar-list"></ul>
+    </nav>
+    <main class="panel">
+      <h2 class="panel-title" id="panel-title"></h2>
+      <p class="panel-principle" id="panel-principle"></p>
+      <div class="demo-stage" id="demo-stage"></div>
+      <div class="code-section">
+        <button class="code-toggle" id="code-toggle">코드 보기</button>
+        <div class="code-block" id="code-block" hidden>
+          <button class="copy-btn" id="copy-btn">복사</button>
+          <pre><code id="code-content"></code></pre>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
