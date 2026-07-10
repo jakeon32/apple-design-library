@@ -1,3 +1,4 @@
+import { animateSpring } from './spring.js';
 import { demo as springButtonDemo } from './demos/spring-button.js';
 import { demo as dragSheetDemo } from './demos/drag-sheet.js';
 import { demo as rubberBandDemo } from './demos/rubber-band.js';
@@ -85,7 +86,36 @@ function route() {
   if (demo) renderDemo(demo);
 }
 
+// Staggered hero entrance — dogfoods the same spring model the site teaches,
+// and honors prefers-reduced-motion instead of forcing motion on everyone.
+function revealHero() {
+  const els = document.querySelectorAll('[data-reveal]');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  els.forEach((el, i) => {
+    if (reduced) {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      return;
+    }
+    setTimeout(() => {
+      animateSpring({
+        from: 0,
+        to: 1,
+        damping: 0.9,
+        response: 0.6,
+        onUpdate(progress) {
+          el.style.opacity = String(Math.max(0, Math.min(1, progress)));
+          el.style.transform = `translateY(${28 * (1 - progress)}px)`;
+        },
+      });
+    }, i * 120);
+  });
+}
+
 if (typeof window !== 'undefined') {
   window.addEventListener('hashchange', route);
-  window.addEventListener('DOMContentLoaded', route);
+  window.addEventListener('DOMContentLoaded', () => {
+    route();
+    revealHero();
+  });
 }
